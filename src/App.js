@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Button, { GlobalStyle } from "./componets/body";
+
+import {createContext,useContext} from 'react'
+
+import Tton from "./button";
+
+
+
+const Mood=createContext()
+
 
 function App() {
+
+
+  const [color,setcolor]=useState('black')
+  function toogle(){
+
+    if(color=="black"){
+
+      setcolor("white")
+    }else{
+      setcolor('black')
+    }
+
+
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   <>
+   <Mood.Provider value={color}>
+
+     <div >
+    <Button onClick={toogle} them={color} > clcik</Button>
     </div>
+   <Tton/>
+   </Mood.Provider>
+
+    </>
   );
 }
 
-export default App;
+
+export default App
+
+export {Mood}
+
+
