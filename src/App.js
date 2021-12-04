@@ -1,41 +1,33 @@
-import { useState } from "react";
-import Button, { GlobalStyle } from "./componets/body";
+import Navbar from "./navbar";
 
-import {createContext,useContext} from 'react'
+import {Switch,Route} from 'react-router-dom';
 
-import Tton from "./button";
+import { Router, useHistory } from "react-router";
 
+import Hhome from "./componets/home";
+import { Component } from "react";
+import Contac from "./componets/Contac";
 
-
-const Mood=createContext()
-
+import About from "./componets/About";
 
 function App() {
 
 
-  const [color,setcolor]=useState({"dark":"black","light":"white"})
-
-  const [a,seta]=useState(0)
-
   
-  function toogle(){
-
-    a==0?seta(1):seta(0)
-
-  }
-
-  console.log(color.dark)
-
+  
 
   return (
    <>
-   <Mood.Provider value={color.light}>
+   <Navbar/>
+   
 
-     <div >
-    <Button onClick={toogle} them={color} > clcik</Button>
-    </div>
-   <Tton/>
-   </Mood.Provider>
+   <Switch>
+     <Route   path='/home' component={Hhome}   />
+     <Route   path='/about' component={About}   />
+     <Route   path='/contac' component={Contac}   />
+   </Switch>
+
+
 
     </>
   );
@@ -44,6 +36,6 @@ function App() {
 
 export default App
 
-export {Mood}
+
 
 
