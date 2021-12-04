@@ -13,23 +13,23 @@ const Mood=createContext()
 function App() {
 
 
-  const [color,setcolor]=useState('black')
+  const [color,setcolor]=useState({"dark":"black","light":"white"})
+
+  const [a,seta]=useState(0)
+
+  
   function toogle(){
 
-    if(color=="black"){
-
-      setcolor("white")
-    }else{
-      setcolor('black')
-    }
-
+    a==0?seta(1):seta(0)
 
   }
+
+  console.log(color.dark)
 
 
   return (
    <>
-   <Mood.Provider value={color}>
+   <Mood.Provider value={color.light}>
 
      <div >
     <Button onClick={toogle} them={color} > clcik</Button>

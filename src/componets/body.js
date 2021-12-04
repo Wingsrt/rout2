@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    background-color:${(props)=>(props.them=="black" ? "white":"black")} ;
+    background-color:${(props)=>(props.them=="white" ? "white":"yellow")} ;
     font-family: Open-Sans, Helvetica, Sans-Serif;
   }
 `;
